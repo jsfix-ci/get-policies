@@ -115,7 +115,7 @@ const selectActions = async (policies, actions, selectedActions) => {
 	else {
 		selectedActions.push(action)
 		const newPolicies = aws.filterPoliciesByActions(policies, selectedActions)
-		const { actions:updatedActions } = aws.getPoliciesPieces(newPolicies)
+		const { actions: updatedActions } = aws.getPoliciesPieces(newPolicies)
 		const canSelectMoreActions = updatedActions.some(a => selectedActions.indexOf(a) < 0)
 		if (canSelectMoreActions)
 			return await selectActions(newPolicies, updatedActions, selectedActions)
@@ -153,7 +153,7 @@ const selectResources = async (policies, resources, selectedResources) => {
 	else {
 		selectedResources.push(resource)
 		const newPolicies = aws.filterPoliciesByResources(policies, selectedResources)
-		const { resources:updatedResources } = aws.getPoliciesPieces(newPolicies)
+		const { resources: updatedResources } = aws.getPoliciesPieces(newPolicies)
 		const canSelectMoreResources = updatedResources.some(a => selectedResources.indexOf(a) < 0)
 		if (canSelectMoreResources)
 			return await selectResources(newPolicies, updatedResources, selectedResources)
